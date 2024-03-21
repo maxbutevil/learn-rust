@@ -13,17 +13,21 @@ void print(T value, string separator = " ") {
 }
 
 template<class T>
+void println(T value) {
+  print(value, "\n");
+}
+void println() {
+  println("");
+}
+
+template<class T>
 void print_vector(vector<T> values, string separator = " ") {
   for (T value : values)
     print(value, separator);
 }
-
-void println() {
-  cout << "\n";
-}
 template<class T>
-void println(T value) {
-  cout << value << "\n";
+void println_vector(vector<T> values) {
+	print_vector(values, "\n")
 }
 
 template<class T>
@@ -37,8 +41,6 @@ T read(string name = "") {
   return value;
   
 }
-
-
 template<class T>
 vector<T> read_vector(string name = "", int size = -1) {
   

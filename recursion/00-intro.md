@@ -1,6 +1,6 @@
 
 
-## Recursion / Introduction
+## Recursion
 
 ### countdown()
 
@@ -40,6 +40,7 @@ countdown(3) {
     }
   }
 }
+// we've printed 3 2 1
 ```
 
 ### countup()
@@ -64,11 +65,11 @@ If we move the print after the recursive call, we print the numbers in increasin
 
 First, when we call a function, we wait for that function to completely terminate before doing anything else. `countup(2)` waits for `countup(1)` to terminate before it prints `2`. That's why `1` is printed before `2`.
 
-Second, when we call a function, it is given a copy of the parameters that are passed into it. In `countup(1)`, n is 1, so it prints `1`. However, that does not affect the value of n in `countup(2)`, so it still prints `2` there. The same logic holds for `countup(3)`, which prints `3`. You can think of every recursive call as its own little world, with its own value of n. When we come back to that world, it's exactly how we left it.
+Second, when we call a function, it is given a *copy* of the parameters that are passed into it. In `countup(1)`, n is 1, so it prints `1`. However, that does not affect the value of n in `countup(2)`, so it still prints `2` there. The same logic holds for `countup(3)`, which prints `3`. You can think of every recursive call as its own little world, with its own value of n. When we come back to that world, it's exactly how we left it.
 
 Here's what happens when we call `countup(3)`:
 
-```c++
+```js
 countup(3) { // n = 3
   countup(2) { // n = 2
     countup(1) { // n = 1
@@ -93,7 +94,8 @@ Every recursive function has two cases:
 
 Without the recursive case, well, it wouldn't be recursive. Without the base case, it would always call itself, so it would never terminate. 
 
-Also, ==every recursive call must bring us closer to the base case==. We must be working toward terminating; otherwise the function will fail or run forever.
+> [!IMPORTANT]
+> Every recursive call must bring us closer to the base case. We must be working toward terminating; otherwise the function will fail or run forever.
 
 In the previous examples, the recursive case is `n > 0`, and the base case is `n <= 0`. Every call decreases n by 1, bringing us closer to our base case.
 
@@ -105,7 +107,7 @@ Recursive functions can be divided into two groups:
 
 Recursion can be useful to solve a given problem if we can express the solution to that problem in terms of the answer to one or more *easier subproblems*. That's a mess of a sentence, so here's an example.
 
-Imagine you want to make a function that, given `n`, calculates `n!` (AKA n factorial). If you don't know what a factorial is, (I'll add a link here).
+Imagine you want to make a function that, given `n`, calculates `n!` (AKA n factorial). If you don't know what a factorial is, `[add a link here]`.
 
 We can get from one factorial to the next by simply multiplying by `n`. In more formal terms, `n! = n * (n-1)!`. Calculating `(n-1)!` is an *easier subproblem*, and we can use it to build a recursive function.
 
@@ -124,7 +126,7 @@ factorial(4) // returns 24  (4 * factorial(3))
 
 ### even_count()
 
-Here's one last intimidating example, in which we use recursion to iterate over a vector:
+Here's one last intimidating example, in which we use recursion to iterate over a vector, and count how many even numbers it contains.
 
 ```c++
 
@@ -132,7 +134,7 @@ Here's one last intimidating example, in which we use recursion to iterate over 
 int even_count(vector<int> v, int i) {
   
   if (i < 0) // base case - we've gone through the whole vector
-    return 0; // why 0?
+    return 0; // think: why 0?
   
   if (v[i] % 2 == 0)
     return 1 + even_count(v, i - 1); // even, count it and move on
@@ -178,12 +180,19 @@ even_count({ 1, 2, 3 }) // don't need to pass in i
 
 ### Why Recursion?
 
-After seeing all these examples, there's one question you may be asking: why not just use a loop? The answer is that these are simple, linear examples. There are *many* places where recursion is genuinely useful, and understanding these simple cases will help you understand the more practical ones.
+After seeing all these examples, there's one question you may be asking: why not just use a loop? The answer is that these are simple, linear examples, where recursion is not really needed. However, there are *many* places where recursion is genuinely useful, and understanding these simple cases will help you understand the more practical ones.
 
-### Practice
-- Write a simple recursive function `int sum_squares(int n)` that returns the sum of the first n squares. For example, `sum_squares(3)` should return 1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> = 14
-- Write a recursive function that returns the first odd number in a vector.
-- Need more
+## Practice Problems
+Feel free to use helper functions.
+
+### Core Problems
+- Write a simple recursive function `int sum_squares(int n)` that returns the sum of the first n squares. For example, 1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> = 14, so `sum_squares(3)` should return 14.
+- Write a recursive function `int first_odd(vector<int> v)` that returns the first odd number in a vector. If there are no odd numbers in the vector, return 0.
+- `[need more]`
+
+### Bonus Problems
+`[need some]`
+
 
 <!--
 - Write a recursive function `int vector_product(vector<int> v)` that returns the product of every value in the vector.
