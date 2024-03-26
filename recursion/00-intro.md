@@ -6,7 +6,7 @@
 
 Take a look at this pseudocode. Don't worry if you don't understand it yet!
 
-```c++
+```js
 countdown(int n) {
   if (n > 0) {
     print(n)
@@ -29,7 +29,7 @@ This function might look strange. Let's look at what exactly happens when `count
 
 Taken as a whole, `countdown(3)` prints `3 2 1`. This diagram may be easier to understand:
 
-```c++
+```js
 countdown(3) {
   print(3)
   countdown(2) {
@@ -46,7 +46,7 @@ countdown(3) {
 ### countup()
 Now let's make everything way more complicated with one small change:
 
-```c++
+```js
 countup(int n) {
   if (n > 0) {
     countup(n - 1) // recursion!
@@ -111,7 +111,7 @@ Imagine you want to make a function that, given `n`, calculates `n!` (AKA n fact
 
 We can get from one factorial to the next by simply multiplying by `n`. In more formal terms, `n! = n * (n-1)!`. Calculating `(n-1)!` is an *easier subproblem*, and we can use it to build a recursive function.
 
-```c++
+```js
 int factorial(int n) {
   if (n <= 1)
     return 1; // base case
