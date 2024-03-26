@@ -31,7 +31,7 @@ I recommend using VSCode. More on this later.
 
 Most chapters will have some "core problems". They aren't as hard as "bonus problems" (see below) but they're important and you **need** to understand them.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Your goal is to eventually be comfortable enough with the core problems to do them quickly, from scratch.
 
 You don't have to do them in order, but don't skip any. You will ***NOT*** be given pseudocode for core problems.
